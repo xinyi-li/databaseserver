@@ -1,0 +1,5 @@
+com/madadata/helloworld/HelloWorldApplication.class
+com/madadata/helloworld/resource/HelloWorldResource.class
+com/madadata/helloworld/HelloWorldConfiguration.class
+com/madadata/helloworld/api/Saying.class
+com/madadata/helloworld/health/TemplateHealthCheck.class
