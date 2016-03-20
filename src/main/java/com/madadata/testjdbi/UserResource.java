@@ -30,7 +30,7 @@ public class UserResource {
 
     @GET
     @Timed
-    public UserProfile getUserProfileById(@PathParam("id") @NotNull IntParam id) {
+    public UserProfile getUserProfileById(@QueryParam("id") IntParam id) {
         return dao.findUserProfileById(id.get());
     }
 //

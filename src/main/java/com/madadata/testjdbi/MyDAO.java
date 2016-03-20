@@ -11,26 +11,26 @@ import org.skife.jdbi.v2.util.StringColumnMapper;
  */
 public interface MyDAO {
 
-    @SqlUpdate("create table if not exists something (id int primary key, name varchar(100))")
-    void createSomethingTable();
+   //@SqlUpdate("create table if not exists something (id int primary key, Lastname varchar(30)),Firstname varchar(30),email varchar(30),age int")
+    //void createSomethingTable();
 
     @SqlUpdate("create table if not exists users (" +
             "id int primary key, " +
-            "firstName varchar(40) not null, " +
-            "lastName varchar(40) not null, " +
-            "age int not null, " +
-            "email varchar(40) not null)")
+            "Lastname varchar(40) not null, " +
+            "Firstname varchar(40) not null, " +
+            "email varchar(40) not null, " +
+            "age int not null)")
     void createUserProfileTable();
 
-    @SqlUpdate("insert or ignore into something (id, name) values (:id, :name)")
-    void insert(@Bind("id") int id, @Bind("name") String name, @Bind("email") String email,
-                @Bind("gender") String gender);
+    @SqlUpdate("insert or ignore into users (id, Lastname,Firstname,email,age) values (:id, :Lastname, :Firstname, :email, :age)")
+    void insert(@Bind("id") int id, @Bind("Lastname") String Lastname, @Bind("Firstname") String Firstname, @Bind("email") String email,
+                @Bind("age") int age);
 
-    @SqlQuery("select name from something where id = :id")
-    String findNameById(@Bind("id") int id);
+   // @SqlQuery("select name from something where id = :id")
+    //String findNameById(@Bind("id") int id);
 
     @RegisterMapper(UserProfileMapper.class)
-    @SqlQuery("select firstName, lastName, email, age from users where id = :id")
+    @SqlQuery("select Lastname, Firstname, age, email from users where id = :id")
     UserProfile findUserProfileById(@Bind("id") int id);
 
 }

@@ -23,10 +23,9 @@ public class JdbiApplication extends Application<JdbiConfiguration> {
         final DBIFactory factory = new DBIFactory();
         final DBI jdbi = factory.build(environment, config.getDataSourceFactory(), "sqlite");
         final MyDAO dao = jdbi.onDemand(MyDAO.class);
-        dao.createSomethingTable();
         dao.createUserProfileTable();
 
-        dao.insert(0, "jetty","1357@qq.com","F");
+        dao.insert(1, "jetty","chen","2ljljas@123.com",14);
         environment.jersey().register(new UserResource(dao));
     }
 }

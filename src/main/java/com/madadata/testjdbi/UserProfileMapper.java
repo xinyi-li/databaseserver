@@ -12,7 +12,7 @@ import java.sql.SQLException;
 public class UserProfileMapper implements ResultSetMapper<UserProfile> {
 
     public UserProfile map(int i, ResultSet resultSet, StatementContext statementContext) throws SQLException {
-        return null;
+        return new UserProfile(resultSet.getString("Lastname"),resultSet.getString("Firstname"),resultSet.getString("email"),resultSet.getInt("age"));
     }
 
 }

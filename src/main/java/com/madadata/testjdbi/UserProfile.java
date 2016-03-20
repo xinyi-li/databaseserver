@@ -10,6 +10,8 @@ import org.hibernate.validator.constraints.Range;
  */
 public class UserProfile {
 
+    @Range(min=0)
+    private int id;
     @Length(min = 3)
     private String firstName;
     @Length(min = 3)
@@ -23,11 +25,15 @@ public class UserProfile {
     }
 
     public UserProfile(String firstName, String lastName, String email, int age) {
+
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.age = age;
     }
+
+    @JsonProperty
+    public int getId(){return id;}
 
     @JsonProperty
     public String getFirstName() {
